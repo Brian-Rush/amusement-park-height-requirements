@@ -1,25 +1,20 @@
 $(document).ready(function () {
-  var height = parseInt(prompt("How tall are you in inches?"));
+  var height = parseInt(prompt("What is your height in inches?"));
 
-  //assign height requirements to different rides
-
-  //branching
-  if (height >= 24) { //merry-go-round - > 24 inches
-    //show merry-go-round
-    $('#merry-go-round').show();
-    if (height >= 36) { //ferris wheel - > 36 inches
-      //show ferris wheel
-      $('#ferris-wheel').show();
-      if (height >= 48) { //roller coaster or gravitron - > 48 inches
-        //show roller coaster
-        $('#roller-coaster').show();
-        //show gravitron
-        $('#gravitron').show();
+  //if height is >= 24 inches highlight merry-go-round
+  if (height >= 24) {
+    $("#merry-go-round").addClass("well");
+    if (height >= 36) {
+      $("#ferris-wheel").addClass("well");
+      if (height >= 48) {
+        $("#roller-coaster, #gravitron").addClass("well");
       }
     }
   }
-  if (height < 48) { //boat ride - < 48 inches
-    //show boat ride
-    $('#childrens-boat-ride').show();
+  if (height < 48) {
+    $("#childrens-boat-ride").addClass("well");
   }
+  //if height is >= 36 inches highlight ferris-wheel
+  //if height is >= 48 inches highlight roller-coaster, gravitron
+  //if height is < 48 inches highlight childrens-boat-ride
 });
